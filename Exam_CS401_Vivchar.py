@@ -18,3 +18,32 @@ print("Прогноз погоди на 10 днів для вашого міст
 for day in temps:
     print(day["date"], "/", day["status"], "/", day["average temp"], "C")
 
+    if a == "exit":
+        print("Дякуємо, що скористалися нашим прогнозом погоди!")
+        break
+
+    found_date = False
+    for day in temps:
+        if day["date"] == a:
+            found_date = True
+            print(f"\nДата: {day['date']}")
+            print(f"Ранок: {day['morning']}°C")
+            print(f"День: {day['day']}°C")
+            print(f"Вечір: {day['evening']}°C")
+            print(f"Середня температура: {day['average temp']}C")
+            print(f"Погода: {day['status']}")
+
+            if "rainy" in day["status"]:
+                print("Рекомендація: візьміть парасольку")
+            elif "sunny" in day["status"] or "ясно" in day["status"]:
+                print("Рекомендація: вдягніть сонцезахисні окуляри")
+            elif "cold" in day["status"]:
+                print("Рекомендація: може бути холодно, вдягніть куртку")
+            elif "cloudy" in day["status"]:
+                print("Рекомендація: беріть з собою легку куртку")
+            else:
+                print("Гарного дня!")
+            break
+
+    if not found_date:
+        print("Дата не знайдена, будь ласка, спробуйте ще раз")
