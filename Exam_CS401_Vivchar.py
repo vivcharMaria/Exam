@@ -16,10 +16,5 @@ for day in temps:
 
 print("Прогноз погоди на 10 днів для вашого міста: Париж\n")
 for day in temps:
-    print(day["date"], "-", day["status"], "-", day["average temp"], "C")
-
-
-
-
-
+    print(day["date"], "/", day["status"], "/", day["average temp"], "C")
 
